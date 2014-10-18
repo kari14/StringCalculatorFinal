@@ -68,5 +68,12 @@ public class test {
 			calc.add("-23");
 		}
 		
+		@Test
+		public void noNumberLargerThan1000() throws Exception
+		{
+			Calculator calc = new Calculator();
+			assertEquals(2, calc.add("1001,2"));
+		}
+		
 	
 }

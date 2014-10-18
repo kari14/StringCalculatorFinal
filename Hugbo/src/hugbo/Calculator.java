@@ -69,7 +69,10 @@ public class Calculator {
 		int total = 0;
 		for(String number : numbers)
 		{
-			total += Integer.parseInt(number);	
+			if(Integer.parseInt(number) <= 1000)
+			{
+				total += Integer.parseInt(number);
+			}
 		}
 		return total;
 	}
