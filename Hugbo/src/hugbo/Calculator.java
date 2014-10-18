@@ -1,12 +1,21 @@
 package hugbo;
 
+import java.util.ArrayList;
+import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.naming.PartialResultException;
+
 public class Calculator {
 	
-	public static int add(String text)
+	public static int add(String text) throws Exception
 	{
+		if (text.contains("-"))
+		{
+			lessThanZero(text);
+		}
+		
 		if(text.startsWith("//"))
 		{
 			return sum(delimeter(text));
@@ -39,8 +48,24 @@ public class Calculator {
 		return numbers.split(",|\n");
 	}
 	
-	private static int sum(String[] numbers)
+	private static void lessThanZero(String numbers) throws Exception
 	{
+		
+		String negatives = null;
+		for(int i = 0; i < numbers.length(); i++)
+		{
+			if(numbers.charAt(i) == '-')
+			{
+				negatives += numbers.charAt(i);
+				negatives += numbers.charAt(i+1);
+				i+=1;
+			}
+		}
+		throw new Exception("ERROR! NO NEGATIVE NUMBERS: " + negatives);		
+	}
+	
+	private static int sum(String[] numbers) 
+	{		
 		int total = 0;
 		for(String number : numbers)
 		{
