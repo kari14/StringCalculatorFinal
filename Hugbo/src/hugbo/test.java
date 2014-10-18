@@ -15,13 +15,19 @@ public class test {
 			assertEquals(0, calc.add(""));
 		}
 		
-//		@Test
-//		public void testOneNumber()
-//		{
-//			Calculator calc = new Calculator();
-//			assertEquals(1, calc.add("1"));
-//		}
+		@Test
+		public void testOneNumber()
+		{
+			Calculator calc = new Calculator();
+			assertEquals(1, calc.add("1"));
+		}
 		
+		@Test 
+		public void testTwoNumbers()
+		{
+			Calculator calc = new Calculator();
+			assertEquals(8, calc.add("6,2"));
+		}
 		
 	
 }
