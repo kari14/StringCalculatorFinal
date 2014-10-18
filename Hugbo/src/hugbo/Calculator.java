@@ -18,7 +18,14 @@ public class Calculator {
 		
 		if(text.startsWith("//"))
 		{
-			return sum(delimeter(text));
+			if(text.charAt(3) == '[')
+			{
+				return sum(multiDelimeter(text));
+			}
+			else
+			{
+				return sum(delimeter(text));	
+			}
 		}
 		else if(text.equals(""))
 		{
@@ -34,14 +41,30 @@ public class Calculator {
 		}	
 	}
 	
+	
+	public static String[] multiDelimeter(String numbers)
+	{
+		int end = numbers.indexOf(']');
+		int first = numbers.indexOf('[') + 1;
+		String longDelimert = numbers.substring(first, end);
+		String finalDelimeter = longDelimert.valueOf(longDelimert.charAt(0));
+		
+		System.out.println(finalDelimeter);
+		
+		 
+		 return numbers.split(finalDelimeter);
+	}
+	
 	private static String[] delimeter(String numbers)
 	{
-		Matcher regex = Pattern.compile("//(.)\n(.*)").matcher(numbers);
+		Matcher regex = Pattern.compile("//(.*)\n(.*)").matcher(numbers);
 		regex.matches();
 		String delimeter = regex.group(1);
 		String textToInts = regex.group(2);
+		
 		return textToInts.split(delimeter);
 	}
+	
 	
 	private static String[] splitNumbers (String numbers)
 	{
@@ -75,5 +98,11 @@ public class Calculator {
 			}
 		}
 		return total;
+	}
+	
+	public static void main(String[] args) {
+		Calculator calc = new Calculator();
+		calc.multiDelimeter("//[***]\n1***2***3");
+		
 	}
 }

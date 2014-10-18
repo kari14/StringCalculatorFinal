@@ -75,5 +75,14 @@ public class test {
 			assertEquals(2, calc.add("1001,2"));
 		}
 		
+		@Test
+		public void longDelimeter() throws Exception
+		{
+			Calculator calc = new Calculator();
+			assertEquals(6, calc.add("//[***]\n1***2***3"));
+		}
+		
+		
+		
 	
 }
