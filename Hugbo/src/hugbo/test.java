@@ -29,5 +29,13 @@ public class test {
 			assertEquals(8, calc.add("6,2"));
 		}
 		
+		@Test
+		public void testManyArguments()
+		{
+			Calculator calc = new Calculator();
+			assertEquals(9, calc.add("6,2,1"));
+
+		}
+		
 	
 }
