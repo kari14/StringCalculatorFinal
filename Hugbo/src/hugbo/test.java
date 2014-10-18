@@ -19,7 +19,7 @@ public class test {
 		public void testOneNumber()
 		{
 			Calculator calc = new Calculator();
-			assertEquals(1, calc.add("1"));
+			assertEquals(2, calc.add("2"));
 		}
 		
 		@Test 
